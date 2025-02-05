@@ -7,16 +7,19 @@ const projectRoutes = require("./routes/projectRoutes");
 dotenv.config();
 
 const app = express();
-app.use(express.json());
+
 const corsOptions = {
   origin: [
     "http://localhost:3000",
     "https://my-portfolio-next-js-eta.vercel.app",
-  ], // Corrected comma placement
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
 };
 
+app.use(express.json());
 app.use(cors(corsOptions));
 
 const port = process.env.PORT || 5000;

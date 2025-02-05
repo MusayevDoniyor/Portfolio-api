@@ -1,6 +1,6 @@
 const express = require("express");
 const Project = require("../models/ProjectModel");
-const { default: generateUniqueId } = require("../utils");
+const { generateUniqueId } = require("../utils");
 
 const router = express.Router();
 
