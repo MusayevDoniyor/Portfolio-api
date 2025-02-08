@@ -1,6 +1,5 @@
 const express = require("express");
 const Project = require("../models/ProjectModel");
-const { generateUniqueId } = require("../utils");
 
 const router = express.Router();
 
@@ -17,7 +16,6 @@ router.post("/", async (req, res) => {
   const { name, description, category, githubLink, demoLink, img } = req.body;
 
   const newProject = new Project({
-    id: generateUniqueId(),
     name,
     description,
     category,
